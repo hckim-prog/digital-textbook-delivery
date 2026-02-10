@@ -281,14 +281,47 @@
             stroke-width: 1.5;
         }
 
+        /* 푸터 영역 강화 */
         footer {
             text-align: center;
-            padding: 80px 0;
-            opacity: 0.4;
+            padding: 80px 20px 100px;
             color: var(--text-dark);
-            font-size: 0.8rem;
             font-family: 'JetBrains Mono', monospace;
+            background-color: var(--bg-content);
+        }
+
+        .footer-info {
+            opacity: 0.4;
+            font-size: 0.8rem;
             letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .footer-contact {
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: opacity 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+
+        .footer-contact a:hover {
+            opacity: 0.7;
+            border-bottom: 1px solid var(--accent-blue);
+        }
+
+        .footer-contact .divider {
+            opacity: 0.2;
+            font-weight: 400;
         }
 
         @media (max-width: 900px) {
@@ -309,6 +342,15 @@
 
             .hero h1 {
                 font-size: 2.2rem;
+            }
+
+            .footer-contact {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .footer-contact .divider {
+                display: none;
             }
         }
     </style>
@@ -395,7 +437,14 @@
     </main>
 
     <footer>
-        &copy; 2026 // HANBIT+ DATA_PIPELINE // SECURE_ACCESS
+        <div class="footer-info">
+            &copy; 2026 // HANBIT+ DATA_PIPELINE // SECURE_ACCESS
+        </div>
+        <div class="footer-contact">
+            <span>문의: <a href="mailto:hckim@hanbit.co.kr">hckim@hanbit.co.kr</a></span>
+            <span class="divider">|</span>
+            <span>Tel: <a href="tel:02-2128-8763">02-2128-8763</a></span>
+        </div>
     </footer>
 
 </body>
