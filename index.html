@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 교재 배포 시스템</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-blue: #38bdf8;
+            --accent-purple: #818cf8;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+        }
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        /* 파이프라인 구조 */
+        .pipeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .step-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+
+        /* 카드 디자인 (글래스모피즘) */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 30px;
+            width: 80%;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2);
+            border-color: var(--accent-blue);
+        }
+
+        .step-number {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        p {
+            color: var(--text-sub);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* 연결선 애니메이션 */
+        .connector {
+            width: 2px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple));
+            position: relative;
+            margin: -5px 0;
+            z-index: 1;
+        }
+
+        .connector::after {
+            content: '▼';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent-purple);
+            font-size: 12px;
+        }
+
+        /* 버튼 디자인 */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--accent-blue);
+            color: #000;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn:hover {
+            filter: brightness(1.2);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>디지털 교재 배포 파이프라인</h1>
+
+        <div class="pipeline">
+            <div class="step-wrapper">
+                <div class="card">
+                    <span class="step-number">Step 01</span>
+                    <h3>기본 정보 수집</h3>
+                    <p>교수님과 학생들의 원활한 교재 지급을 위해<br>한빛+ 아이디와 기본 정보를 수집합니다.</p>
+                    <div class="btn-group">
+                        <a href="https://forms.gle/kjAEKU7QAqzkAhPD9" target="_blank" class="btn btn-primary">저자(교수님)
+                            등록</a>
+                        <a href="https://forms.gle/5366dVLWF2g22a3o8" target="_blank" class="btn btn-secondary">학생 정보
+                            등록</a>
+                    </div>
+                </div>
+                <div class="connector"></div>
+            </div>
+
+            <div class="step-wrapper">
+                <div class="card">
+                    <span class="step-number">Step 02</span>
+                    <h3>디지털 교재 자동 지급</h3>
+                    <p>수집된 정보를 매칭하여 한빛+ 계정으로<br>디지털 교재 라이선스를 즉시 발송합니다.</p>
+                    <div class="btn-group">
+                        <a href="https://forms.gle/9TAMrootVchFvfFg9" target="_blank" class="btn btn-primary">지급 현황 통합
+                            확인</a>
+                    </div>
+                </div>
+                <div class="connector"></div>
+            </div>
+
+            <div class="step-wrapper">
+                <div class="card" style="border-bottom: 3px solid var(--accent-purple);">
+                    <span class="step-number">Step 03</span>
+                    <h3>개별 맞춤 학습 시작</h3>
+                    <p>SYNC 되지 않은 독립적 디지털 교재로<br>교수님과 학생이 각자의 환경에서 수업을 진행합니다.</p>
+                    <div class="btn-group">
+                        <span style="color: var(--accent-purple); font-weight: bold;">Learning Started 🚀</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
