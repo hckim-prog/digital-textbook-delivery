@@ -98,7 +98,8 @@
         .grid-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 20px 60px;
+            padding: 80px 20px 20px;
+            /* 하단 간격을 60px에서 20px로 줄임 */
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             gap: 24px;
@@ -281,6 +282,21 @@
             stroke-width: 1.5;
         }
 
+        /* 온보딩 제목 스타일 */
+        .onboarding-title-section {
+            max-width: 1200px;
+            margin: 20px auto 20px;
+            /* 상단 간격을 60px에서 20px로 줄임 */
+            padding: 0 20px;
+        }
+
+        .onboarding-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            letter-spacing: -1px;
+        }
+
         /* 온보딩 이미지 영역 스타일 */
         .onboarding-section {
             max-width: 1200px;
@@ -370,6 +386,10 @@
                 display: none;
             }
 
+            .onboarding-title {
+                font-size: 1.5rem;
+            }
+
             .onboarding-img {
                 border-radius: 20px;
             }
@@ -455,6 +475,12 @@
         </div>
     </main>
 
+    <!-- 온보딩 섹션 제목 -->
+    <section class="onboarding-title-section">
+        <h2 class="onboarding-title">디지털 교재 주요 기능 미리보기</h2>
+    </section>
+
+    <!-- 온보딩 이미지 영역 -->
     <section class="onboarding-section">
         <img src="Onbd.jpg" alt="디지털 교재 온보딩" class="onboarding-img" onerror="this.style.display='none'">
     </section>
