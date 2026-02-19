@@ -98,7 +98,7 @@
         .grid-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 20px 100px;
+            padding: 80px 20px 60px;
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             gap: 24px;
@@ -281,7 +281,24 @@
             stroke-width: 1.5;
         }
 
-        /* 푸터 영역 강화 */
+        /* 온보딩 이미지 영역 스타일 */
+        .onboarding-section {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .onboarding-img {
+            width: 100%;
+            height: auto;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: block;
+        }
+
+        /* 푸터 영역 */
         footer {
             text-align: center;
             padding: 80px 20px 100px;
@@ -351,6 +368,10 @@
 
             .footer-contact .divider {
                 display: none;
+            }
+
+            .onboarding-img {
+                border-radius: 20px;
             }
         }
     </style>
@@ -423,8 +444,6 @@
                 <h3 class="card-title">개별 교재 열람 및 수업 진행</h3>
                 <p class="card-desc" style="margin-bottom: 20px;">지급된 교재는 <a href="https://www.hanbit.co.kr/my/content"
                         target="_blank" class="inline-link">[한빛+ 사이트 > 마이한빛]</a>에서 바로 열람할 수 있습니다.</p>
-
-                <!-- 하이라이트 공지 박스 -->
                 <div class="info-highlight">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -435,6 +454,10 @@
             </section>
         </div>
     </main>
+
+    <section class="onboarding-section">
+        <img src="Onbd.jpg" alt="디지털 교재 온보딩" class="onboarding-img" onerror="this.style.display='none'">
+    </section>
 
     <footer>
         <div class="footer-info">
