@@ -98,8 +98,8 @@
         .grid-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 20px 20px;
-            /* 하단 간격을 60px에서 20px로 줄임 */
+            padding: 80px 20px 0px;
+            /* 요청사항: 하단 간격을 0으로 줄여 제목과 밀착 */
             display: grid;
             grid-template-columns: repeat(6, 1fr);
             gap: 24px;
@@ -150,20 +150,22 @@
         .step-tag {
             font-family: 'JetBrains Mono', monospace;
             font-weight: 700;
-            font-size: 0.75rem;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            /* 순서를 명확히 하기 위해 폰트 크기 증대 (기존 0.75rem) */
+            margin-bottom: 24px;
             color: var(--accent-blue);
             letter-spacing: 2px;
             text-transform: uppercase;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .step-tag::before {
             content: '';
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            /* 텍스트 크기에 맞춰 점 크기 조정 */
+            height: 10px;
             background: var(--accent-blue);
             border-radius: 50%;
             display: inline-block;
@@ -285,8 +287,8 @@
         /* 온보딩 제목 스타일 */
         .onboarding-title-section {
             max-width: 1200px;
-            margin: 20px auto 20px;
-            /* 상단 간격을 60px에서 20px로 줄임 */
+            margin: 40px auto 16px;
+            /* 요청사항: 상단 여백을 줄여 카드 섹션과 가깝게 배치 */
             padding: 0 20px;
         }
 
@@ -393,6 +395,10 @@
             .onboarding-img {
                 border-radius: 20px;
             }
+
+            .step-tag {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -475,7 +481,7 @@
         </div>
     </main>
 
-    <!-- 온보딩 섹션 제목 -->
+    <!-- 온보딩 섹션 제목 추가 -->
     <section class="onboarding-title-section">
         <h2 class="onboarding-title">디지털 교재 주요 기능 미리보기</h2>
     </section>
